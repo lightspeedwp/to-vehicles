@@ -1,0 +1,147 @@
+# Copyright (C) 2017 to-vehicles
+# This file is distributed under the same license as the to-vehicles package.
+msgid ""
+msgstr ""
+"Project-Id-Version: to-vehicles\n"
+"Report-Msgid-Bugs-To: https://www.lsdev.biz/product/tour-operator-vehicles/issues\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"Language-Team: LightSpeed <webmaster@lsdev.biz>\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: classes/class-to-vehicles-admin.php:40, classes/class-to-vehicles-admin.php:46, classes/class-to-vehicles-admin.php:52
+msgctxt "to-vehicles"
+msgid "Vehicles"
+msgstr ""
+
+#: classes/class-to-vehicles-admin.php:41
+msgctxt "to-vehicles"
+msgid "Vehicle"
+msgstr ""
+
+#: classes/class-to-vehicles-admin.php:42
+msgctxt "to-vehicles"
+msgid "Add New"
+msgstr ""
+
+#: classes/class-to-vehicles-admin.php:43
+msgctxt "to-vehicles"
+msgid "Add New Vehicle"
+msgstr ""
+
+#: classes/class-to-vehicles-admin.php:44
+msgctxt "to-vehicles"
+msgid "Edit Vehicle"
+msgstr ""
+
+#: classes/class-to-vehicles-admin.php:45
+msgctxt "to-vehicles"
+msgid "New Vehicle"
+msgstr ""
+
+#: classes/class-to-vehicles-admin.php:47
+msgctxt "to-vehicles"
+msgid "View Vehicle"
+msgstr ""
+
+#: classes/class-to-vehicles-admin.php:48
+msgctxt "to-vehicles"
+msgid "Search Vehicles"
+msgstr ""
+
+#: classes/class-to-vehicles-admin.php:49
+msgctxt "to-vehicles"
+msgid "No vehicles found"
+msgstr ""
+
+#: classes/class-to-vehicles-admin.php:50
+msgctxt "to-vehicles"
+msgid "No vehicles found in Trash"
+msgstr ""
+
+#: classes/class-to-vehicles.php:103
+msgid "Vehicles"
+msgstr ""
+
+#: classes/class-to-vehicles.php:106
+msgid "Vehicle"
+msgstr ""
+
+#: includes/template-tags.php:138
+msgid "Features"
+msgstr ""
+
+#: includes/template-tags.php:165
+msgid "lsx_to_get_post_type_section_titleaccommodation"
+msgstr ""
+
+#: includes/template-tags.php:186
+msgid "lsx_to_get_post_type_section_titletour"
+msgstr ""
+
+#: templates/content-vehicle.php:29
+msgid "Read more"
+msgstr ""
+
+#: templates/content-vehicle.php:38
+msgid "Summary"
+msgstr ""
+
+#: templates/content-vehicle.php:40
+msgid "Travel Style"
+msgstr ""
+
+#: templates/content-vehicle.php:41, templates/content-vehicle.php:78
+msgid "Tours"
+msgstr ""
+
+#: templates/content-vehicle.php:42, templates/content-vehicle.php:79
+msgid "Accommodation"
+msgstr ""
+
+#: templates/content-vehicle.php:44, templates/content-vehicle.php:73, templates/content-widget-vehicle.php:24
+msgid "Code"
+msgstr ""
+
+#: templates/content-vehicle.php:45
+msgid "Engine Type"
+msgstr ""
+
+#: templates/content-vehicle.php:46
+msgid "Gearbox"
+msgstr ""
+
+#: templates/content-vehicle.php:47
+msgid "Engine-size"
+msgstr ""
+
+#: templates/content-vehicle.php:48
+msgid "Gears"
+msgstr ""
+
+#: templates/content-vehicle.php:49
+msgid "Seating"
+msgstr ""
+
+#: templates/content-vehicle.php:76, templates/content-widget-vehicle.php:27
+msgid "Seats"
+msgstr ""
+
+#: templates/content-widget-vehicle.php:30
+msgid "View Vehicle"
+msgstr ""
+
+#: templates/single-vehicle.php:56, templates/single-vehicle.php:94
+msgid "Gallery"
+msgstr ""
+
+#: templates/single-vehicle.php:61, templates/single-vehicle.php:107
+msgid "Videos"
+msgstr ""
