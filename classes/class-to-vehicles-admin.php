@@ -5,7 +5,7 @@
  * @package   LSX_TO_Vehicles_Admin
  * @author    LightSpeed
  * @license   GPL-3.0+
- * @link      
+ * @link
  * @copyright 2016 LightSpeedDevelopment
  */
 
@@ -16,67 +16,67 @@
  * @author  LightSpeed
  */
 
-class LSX_TO_Vehicles_Admin extends LSX_TO_Vehicles{
+class LSX_TO_Vehicles_Admin extends LSX_TO_Vehicles {
 
 	/**
 	 * Constructor
 	 */
 	public function __construct() {
 		add_action( 'init', array( $this, 'register_post_types' ) );
-		add_filter( 'cmb_meta_boxes', array( $this, 'register_metaboxes') );
+		add_filter( 'cmb_meta_boxes', array( $this, 'register_metaboxes' ) );
 
-		add_filter( 'lsx_to_destination_custom_fields', array( $this, 'custom_fields') );
-		add_filter( 'lsx_to_tour_custom_fields', array( $this, 'custom_fields') );
-		add_filter( 'lsx_to_accommodation_custom_fields', array( $this, 'custom_fields') );
-		add_filter( 'lsx_to_team_custom_fields', array( $this, 'custom_fields') );
-		add_filter( 'lsx_to_activity_custom_fields', array( $this, 'custom_fields') );
+		add_filter( 'lsx_to_destination_custom_fields', array( $this, 'custom_fields' ) );
+		add_filter( 'lsx_to_tour_custom_fields', array( $this, 'custom_fields' ) );
+		add_filter( 'lsx_to_accommodation_custom_fields', array( $this, 'custom_fields' ) );
+		add_filter( 'lsx_to_team_custom_fields', array( $this, 'custom_fields' ) );
+		add_filter( 'lsx_to_activity_custom_fields', array( $this, 'custom_fields' ) );
 	}
 	/**
 	 * Register the landing pages post type.
 	 */
 	public function register_post_types() {
-	
+
 		$labels = array(
-		    'name'               => _x( 'Vehicles', 'to-vehicles' ),
-		    'singular_name'      => _x( 'Vehicle', 'to-vehicles' ),
-		    'add_new'            => _x( 'Add New', 'to-vehicles' ),
-		    'add_new_item'       => _x( 'Add New Vehicle', 'to-vehicles' ),
-		    'edit_item'          => _x( 'Edit Vehicle', 'to-vehicles' ),
-		    'new_item'           => _x( 'New Vehicle', 'to-vehicles' ),
-		    'all_items'          => _x( 'Vehicles', 'to-vehicles' ),
-		    'view_item'          => _x( 'View Vehicle', 'to-vehicles' ),
-		    'search_items'       => _x( 'Search Vehicles', 'to-vehicles' ),
-		    'not_found'          => _x( 'No vehicles found', 'to-vehicles' ),
-		    'not_found_in_trash' => _x( 'No vehicles found in Trash', 'to-vehicles' ),
-		    'parent_item_colon'  => '',
-		    'menu_name'          => _x( 'Vehicles', 'to-vehicles' )
+			'name'               => _x( 'Vehicles', 'to-vehicles' ),
+			'singular_name'      => _x( 'Vehicle', 'to-vehicles' ),
+			'add_new'            => _x( 'Add New', 'to-vehicles' ),
+			'add_new_item'       => _x( 'Add New Vehicle', 'to-vehicles' ),
+			'edit_item'          => _x( 'Edit Vehicle', 'to-vehicles' ),
+			'new_item'           => _x( 'New Vehicle', 'to-vehicles' ),
+			'all_items'          => _x( 'Vehicles', 'to-vehicles' ),
+			'view_item'          => _x( 'View Vehicle', 'to-vehicles' ),
+			'search_items'       => _x( 'Search Vehicles', 'to-vehicles' ),
+			'not_found'          => _x( 'No vehicles found', 'to-vehicles' ),
+			'not_found_in_trash' => _x( 'No vehicles found in Trash', 'to-vehicles' ),
+			'parent_item_colon'  => '',
+			'menu_name'          => _x( 'Vehicles', 'to-vehicles' )
 		);
 
 		$args = array(
-            'menu_icon'          =>'dashicons-performance',
-		    'labels'             => $labels,
-		    'public'             => true,
-		    'publicly_queryable' => true,
-		    'show_ui'            => true,
-		    'show_in_menu'       => 'tour-operator',
+			'menu_icon'          => 'dashicons-performance',
+			'labels'             => $labels,
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_menu'       => 'tour-operator',
 			'menu_position'      => 80,
-		    'query_var'          => true,
-		    'rewrite'            => array('slug'=>'vehicle'),
-		    'capability_type'    => 'post',
-		    'has_archive'        => 'vehicles',
-		    'hierarchical'       => true,
-            'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' )
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'vehicle' ),
+			'capability_type'    => 'post',
+			'has_archive'        => 'vehicles',
+			'hierarchical'       => true,
+			'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' ),
 		);
 
-		register_post_type( 'vehicle', $args );	
-		
+		register_post_type( 'vehicle', $args );
+
 	}
-	
+
 	function register_metaboxes( array $meta_boxes ) {
-	
-		$fields[] = array( 'id' => 'title',  'name' => 'General', 'type' => 'title' );
-		$fields[] = array( 'id' => 'featured',  'name' => 'Featured', 'type' => 'checkbox' );
-		if(!class_exists('LSX_Banners')){
+
+		$fields[] = array( 'id' => 'title', 'name' => 'General', 'type' => 'title' );
+		$fields[] = array( 'id' => 'featured', 'name' => 'Featured', 'type' => 'checkbox' );
+		if ( ! class_exists( 'LSX_Banners' ) ) {
 			$fields[] = array( 'id' => 'tagline',  'name' => 'Tagline', 'type' => 'text' );
 		}
 		$fields[] = array( 'id' => 'code',  'name' => 'Code', 'type' => 'text' );

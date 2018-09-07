@@ -2,8 +2,8 @@
 /**
  * Vehicle Archive
  *
- * @package 	lsx-tour-operators
- * @category	vehicle
+ * @package   lsx-tour-operators
+ * @category  vehicle
  */
 
 get_header(); ?>
@@ -16,10 +16,10 @@ get_header(); ?>
 
 		<main id="main" class="site-main" role="main">
 
-		<?php 
+		<?php
 		/**
 		 * Hooked
-		 * 
+		 *
 		 *  - lsx_tour_operator_archive_header() - 100
 		 *  - lsx_tour_operator_archive_description() - 100
 		 */
@@ -28,7 +28,7 @@ get_header(); ?>
 
 		<?php global $columns; $columns = 3; ?>
 		<?php if ( have_posts() ) : ?>
-			
+
 			<div class="row">
 				<?php while ( have_posts() ) : the_post(); ?>
 					<div class="panel col-sm-12">
@@ -45,13 +45,13 @@ get_header(); ?>
 		<?php endif; ?>
 
 		<?php lsx_content_bottom(); ?>
-		
+
 		<?php lsx_to_sharing(); ?>
 
 		</main><!-- #main -->
 
 		<?php lsx_content_after(); ?>
-		
+
 	</section><!-- #primary -->
 
 <?php lsx_content_wrap_after(); ?>	
