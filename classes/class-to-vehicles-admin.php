@@ -49,7 +49,7 @@ class LSX_TO_Vehicles_Admin extends LSX_TO_Vehicles {
 			'not_found'          => _x( 'No vehicles found', 'to-vehicles' ),
 			'not_found_in_trash' => _x( 'No vehicles found in Trash', 'to-vehicles' ),
 			'parent_item_colon'  => '',
-			'menu_name'          => _x( 'Vehicles', 'to-vehicles' )
+			'menu_name'          => _x( 'Vehicles', 'to-vehicles' ),
 		);
 
 		$args = array(
@@ -74,64 +74,320 @@ class LSX_TO_Vehicles_Admin extends LSX_TO_Vehicles {
 
 	function register_metaboxes( array $meta_boxes ) {
 
-		$fields[] = array( 'id' => 'title', 'name' => 'General', 'type' => 'title' );
-		$fields[] = array( 'id' => 'featured', 'name' => 'Featured', 'type' => 'checkbox' );
+		$fields[] = array(
+			'id'   => 'title',
+			'name' => 'General',
+			'type' => 'title',
+		);
+		$fields[] = array(
+			'id'   => 'featured',
+			'name' => 'Featured',
+			'type' => 'checkbox',
+		);
 		if ( ! class_exists( 'LSX_Banners' ) ) {
-			$fields[] = array( 'id' => 'tagline',  'name' => 'Tagline', 'type' => 'text' );
+			$fields[] = array(
+				'id'   => 'tagline',
+				'name' => 'Tagline',
+				'type' => 'text',
+			);
 		}
-		$fields[] = array( 'id' => 'code',  'name' => 'Code', 'type' => 'text' );
-		$fields[] = array( 'id' => 'gearbox',  'name' => 'Gearbox Type', 'type' => 'radio', 'options' => array( 'Automatic'=>'Automatic', 'Manual'=>'Manual' ) );
-		$fields[] = array( 'id' => 'gears',  'name' => 'Gears', 'type' => 'radio', 'options' => array( '4', '5', '6', '7' ) );
-		$fields[] = array( 'id' => 'engine_type',  'name' => 'Engine Type', 'type' => 'radio', 'options' => array( 'Diesel'=>'Diesel', 'Petrol'=>'Petrol' ) );
-		$fields[] = array( 'id' => 'engine_size',  'name' => 'Engine Size', 'type' => 'text' );
-		$fields[] = array( 'id' => 'seating',  'name' => 'Seats', 'type' => 'text' );
-		$fields[] = array( 'id' => 'features',  'name' => 'Features', 'type' => 'wysiwyg', 'options' => array( 'editor_height' => '100' ) );
-		$fields[] = array( 'id' => 'gallery_title',  'name' => 'Gallery', 'type' => 'title' );
+		$fields[] = array(
+			'id'   => 'code',
+			'name' => 'Code',
+			'type' => 'text',
+		);
+		$fields[] = array(
+			'id'      => 'gearbox',
+			'name'    => 'Gearbox Type',
+			'type'    => 'radio',
+			'options' => array(
+				'Automatic' => 'Automatic',
+				'Manual'    => 'Manual',
+			),
+		);
+		$fields[] = array(
+			'id'      => 'gears',
+			'name'    => 'Gears',
+			'type'    => 'radio',
+			'options' => array(
+				'4',
+				'5',
+				'6',
+				'7',
+			),
+		);
+		$fields[] = array(
+			'id'      => 'engine_type',
+			'name'    => 'Engine Type',
+			'type'    => 'radio',
+			'options' => array(
+				'Diesel' => 'Diesel',
+				'Petrol' => 'Petrol',
+			),
+		);
+		$fields[] = array(
+			'id'   => 'engine_size',
+			'name' => 'Engine Size',
+			'type' => 'text',
+		);
+		$fields[] = array(
+			'id'   => 'seating',
+			'name' => 'Seats',
+			'type' => 'text',
+		);
+		$fields[] = array(
+			'id'      => 'features',
+			'name'    => 'Features',
+			'type'    => 'wysiwyg',
+			'options' => array(
+				'editor_height' => '100',
+			),
+		);
+		$fields[] = array(
+			'id'   => 'gallery_title',
+			'name' => 'Gallery',
+			'type' => 'title',
+		);
 
 		//Galleries Block
-		$fields[] = array( 'id' => 'gallery_title',  'name' => esc_html__('Gallery','tour-operator'), 'type' => 'title' );
-		$fields[] = array( 'id' => 'gallery', 'name' => esc_html__('Gallery','tour-operator'), 'type' => 'image', 'repeatable' => true, 'show_size' => false );
-		if(class_exists('Envira_Gallery')){
-			$fields[] = array( 'id' => 'envira_title',  'name' => esc_html__('Envira Gallery','tour-operator'), 'type' => 'title' );
-			$fields[] = array( 'id' => 'envira_gallery', 'name' => esc_html__('Envira Gallery','to-galleries'), 'type' => 'post_select', 'use_ajax' => false, 'query' => array( 'post_type' => 'envira','nopagin' => true,'posts_per_page' => '-1', 'orderby' => 'title', 'order' => 'ASC' ) , 'allow_none' => true );
-			if(class_exists('Envira_Videos')){
-				$fields[] = array( 'id' => 'envira_video', 'name' => esc_html__('Envira Video Gallery','to-galleries'), 'type' => 'post_select', 'use_ajax' => false, 'query' => array( 'post_type' => 'envira','nopagin' => true,'posts_per_page' => '-1', 'orderby' => 'title', 'order' => 'ASC' ) , 'allow_none' => true );
+		$fields[] = array(
+			'id'   => 'gallery_title',
+			'name' => esc_html__( 'Gallery', 'tour-operator' ),
+			'type' => 'title',
+		);
+		$fields[] = array(
+			'id'         => 'gallery',
+			'name'       => esc_html__( 'Gallery', 'tour-operator' ),
+			'type'       => 'image',
+			'repeatable' => true,
+			'show_size'  => false,
+		);
+		if ( class_exists( 'Envira_Gallery' ) ) {
+			$fields[] = array(
+				'id'   => 'envira_title',
+				'name' => esc_html__( 'Envira Gallery', 'tour-operator' ),
+				'type' => 'title',
+			);
+			$fields[] = array(
+				'id'         => 'envira_gallery',
+				'name'       => esc_html__( 'Envira Gallery', 'to-galleries' ),
+				'type'       => 'post_select',
+				'use_ajax'   => false,
+				'query'      => array(
+					'post_type'      => 'envira',
+					'nopagin'        => true,
+					'posts_per_page' => '-1',
+					'orderby'        => 'title',
+					'order'          => 'ASC',
+				),
+				'allow_none' => true,
+			);
+			if ( class_exists( 'Envira_Videos' ) ) {
+				$fields[] = array(
+					'id'         => 'envira_video',
+					'name'       => esc_html__( 'Envira Video Gallery', 'to-galleries' ),
+					'type'       => 'post_select',
+					'use_ajax'   => false,
+					'query'      => array(
+						'post_type'      => 'envira',
+						'nopagin'        => true,
+						'posts_per_page' => '-1',
+						'orderby'        => 'title',
+						'order'          => 'ASC',
+					),
+					'allow_none' => true,
+				);
 			}
 		}
-		
-		if(class_exists('LSX_Field_Pattern')){ $fields = array_merge($fields,LSX_Field_Pattern::videos()); }
-		
-		$fields[] = array( 'id' => 'accommodation_title',  'name' => 'Accommodation', 'type' => 'title' );
-		$fields[] = array( 'id' => 'accommodation_to_vehicle', 'name' => 'Accommodations related with this vehicle', 'type' => 'post_select', 'use_ajax' => false, 'query' => array( 'post_type' => 'accommodation','nopagin' => true,'posts_per_page' => 1000, 'orderby' => 'title', 'order' => 'ASC' ), 'repeatable' => true, 'sortable' => true, 'allow_none'=>true );
-		$fields[] = array( 'id' => 'activity_title',  'name' => 'Activities', 'type' => 'title' );
-		$fields[] = array( 'id' => 'activity_to_vehicle', 'name' => 'Activities related with this vehicle', 'type' => 'post_select', 'use_ajax' => false, 'query' => array( 'post_type' => 'activity','nopagin' => true,'posts_per_page' => 1000, 'orderby' => 'title', 'order' => 'ASC' ), 'repeatable' => true, 'sortable' => true, 'allow_none'=>true );
-		$fields[] = array( 'id' => 'destinations_title',  'name' => 'Destinations', 'type' => 'title' );
-		$fields[] = array( 'id' => 'destination_to_vehicle', 'name' => 'Destinations related with this vehicle', 'type' => 'post_select', 'use_ajax' => false, 'query' => array( 'post_type' => 'destination','nopagin' => true,'posts_per_page' => 1000, 'orderby' => 'title', 'order' => 'ASC' ), 'repeatable' => true, 'sortable' => true, 'allow_none'=>true );
-		$fields[] = array( 'id' => 'review_title',  'name' => 'Reviews', 'type' => 'title' );
-		$fields[] = array( 'id' => 'review_to_vehicle', 'name' => 'Reviews related with this vehicle', 'type' => 'post_select', 'use_ajax' => false, 'query' => array( 'post_type' => 'reviews','nopagin' => true,'posts_per_page' => 1000, 'orderby' => 'title', 'order' => 'ASC' ), 'repeatable' => true, 'sortable' => true, 'allow_none'=>true );
-		$fields[] = array( 'id' => 'specials_title',  'name' => 'Specials', 'type' => 'title' );
-		$fields[] = array( 'id' => 'special_to_vehicle', 'name' => 'Specials related with this vehicle', 'type' => 'post_select', 'use_ajax' => false, 'query' => array( 'post_type' => 'special','nopagin' => true,'posts_per_page' => 1000, 'orderby' => 'title', 'order' => 'ASC' ), 'repeatable' => true, 'sortable' => true, 'allow_none'=>true );
-		$fields[] = array( 'id' => 'team_title',  'name' => 'Team Members', 'type' => 'title' );
-		$fields[] = array( 'id' => 'team_to_vehicle', 'name' => 'Team members related with this vehicle', 'type' => 'post_select', 'use_ajax' => false, 'query' => array( 'post_type' => 'team','nopagin' => true,'posts_per_page' => 1000, 'orderby' => 'title', 'order' => 'ASC' ), 'repeatable' => true, 'sortable' => true, 'allow_none'=>true );
-		$fields[] = array( 'id' => 'tours_title',  'name' => 'Tours', 'type' => 'title' );
-		$fields[] = array( 'id' => 'tour_to_vehicle', 'name' => 'Tours related with this vehicle', 'type' => 'post_select', 'use_ajax' => false, 'query' => array( 'post_type' => 'tour','nopagin' => true,'posts_per_page' => 1000, 'orderby' => 'title', 'order' => 'ASC' ), 'repeatable' => true, 'sortable' => true, 'allow_none'=>true );
-		
+
+		if ( class_exists( 'LSX_Field_Pattern' ) ) {
+			$fields = array_merge( $fields, LSX_Field_Pattern::videos() );
+		}
+
+		$fields[] = array(
+			'id'   => 'accommodation_title',
+			'name' => 'Accommodation',
+			'type' => 'title',
+		);
+		$fields[] = array(
+			'id'         => 'accommodation_to_vehicle',
+			'name'       => 'Accommodations related with this vehicle',
+			'type'       => 'post_select',
+			'use_ajax'   => false,
+			'query'      => array(
+				'post_type'      => 'accommodation',
+				'nopagin'        => true,
+				'posts_per_page' => 1000,
+				'orderby'        => 'title',
+				'order'          => 'ASC',
+			),
+			'repeatable' => true,
+			'sortable'   => true,
+			'allow_none' => true,
+		);
+		$fields[] = array(
+			'id'   => 'activity_title',
+			'name' => 'Activities',
+			'type' => 'title',
+		);
+		$fields[] = array(
+			'id'         => 'activity_to_vehicle',
+			'name'       => 'Activities related with this vehicle',
+			'type'       => 'post_select',
+			'use_ajax'   => false,
+			'query'      => array(
+				'post_type'      => 'activity',
+				'nopagin'        => true,
+				'posts_per_page' => 1000,
+				'orderby'        => 'title',
+				'order'          => 'ASC',
+			),
+			'repeatable' => true,
+			'sortable'   => true,
+			'allow_none' => true,
+		);
+		$fields[] = array(
+			'id'   => 'destinations_title',
+			'name' => 'Destinations',
+			'type' => 'title',
+		);
+		$fields[] = array(
+			'id'         => 'destination_to_vehicle',
+			'name'       => 'Destinations related with this vehicle',
+			'type'       => 'post_select',
+			'use_ajax'   => false,
+			'query'      => array(
+				'post_type'      => 'destination',
+				'nopagin'        => true,
+				'posts_per_page' => 1000,
+				'orderby'        => 'title',
+				'order'          => 'ASC',
+			),
+			'repeatable' => true,
+			'sortable'   => true,
+			'allow_none' => true,
+		);
+		$fields[] = array(
+			'id'   => 'review_title',
+			'name' => 'Reviews',
+			'type' => 'title',
+		);
+		$fields[] = array(
+			'id'         => 'review_to_vehicle',
+			'name'       => 'Reviews related with this vehicle',
+			'type'       => 'post_select',
+			'use_ajax'   => false,
+			'query'      => array(
+				'post_type'      => 'reviews',
+				'nopagin'        => true,
+				'posts_per_page' => 1000,
+				'orderby'        => 'title',
+				'order'          => 'ASC',
+			),
+			'repeatable' => true,
+			'sortable'   => true,
+			'allow_none' => true,
+		);
+		$fields[] = array(
+			'id'   => 'specials_title',
+			'name' => 'Specials',
+			'type' => 'title',
+		);
+		$fields[] = array(
+			'id'         => 'special_to_vehicle',
+			'name'       => 'Specials related with this vehicle',
+			'type'       => 'post_select',
+			'use_ajax'   => false,
+			'query'      => array(
+				'post_type'      => 'special',
+				'nopagin'        => true,
+				'posts_per_page' => 1000,
+				'orderby'        => 'title',
+				'order'          => 'ASC',
+			),
+			'repeatable' => true,
+			'sortable'   => true,
+			'allow_none' => true,
+		);
+		$fields[] = array(
+			'id'   => 'team_title',
+			'name' => 'Team Members',
+			'type' => 'title',
+		);
+		$fields[] = array(
+			'id'         => 'team_to_vehicle',
+			'name'       => 'Team members related with this vehicle',
+			'type'       => 'post_select',
+			'use_ajax'   => false,
+			'query'      => array(
+				'post_type'      => 'team',
+				'nopagin'        => true,
+				'posts_per_page' => 1000,
+				'orderby'        => 'title',
+				'order'          => 'ASC',
+			),
+			'repeatable' => true,
+			'sortable'   => true,
+			'allow_none' => true,
+		);
+		$fields[] = array(
+			'id'   => 'tours_title',
+			'name' => 'Tours',
+			'type' => 'title',
+		);
+		$fields[] = array(
+			'id'         => 'tour_to_vehicle',
+			'name'       => 'Tours related with this vehicle',
+			'type'       => 'post_select',
+			'use_ajax'   => false,
+			'query'      => array(
+				'post_type'      => 'tour',
+				'nopagin'        => true,
+				'posts_per_page' => 1000,
+				'orderby'        => 'title',
+				'order'          => 'ASC',
+			),
+			'repeatable' => true,
+			'sortable'   => true,
+			'allow_none' => true,
+		);
+
 		$meta_boxes[] = array(
-				'title' => 'Tour Operator Plugin',
-				'pages' => 'vehicle',
-				'fields' => $fields
+			'title'  => 'Tour Operator Plugin',
+			'pages'  => 'vehicle',
+			'fields' => $fields,
 		);
 		return $meta_boxes;
-	
+
 	}
 
 	/**
 	 * Adds in the gallery fields to the Tour Operators Post Types.
 	 */
-	public function custom_fields($fields) {
+	public function custom_fields( $fields ) {
 		$post_type = get_post_type();
-		$fields[] = array('id' => 'vehicle_title', 'name' => 'Vehicles', 'type' => 'title', 'cols' => 12);
-		$fields[] = array('id' => 'vehicle_to_'.$post_type, 'name' => 'Vehicles related with this '.$post_type, 'type' => 'post_select', 'use_ajax' => false, 'query' => array('post_type' => 'vehicle', 'nopagin' => true, 'posts_per_page' => '-1', 'orderby' => 'title', 'order' => 'ASC'), 'repeatable' => true, 'allow_none' => true, 'cols' => 12);
+		$fields[]  = array(
+			'id'   => 'vehicle_title',
+			'name' => 'Vehicles',
+			'type' => 'title',
+			'cols' => 12,
+		);
+		$fields[]  = array(
+			'id'         => 'vehicle_to_' . $post_type,
+			'name'       => 'Vehicles related with this ' . $post_type,
+			'type'       => 'post_select',
+			'use_ajax'   => false,
+			'query'      => array(
+				'post_type'      => 'vehicle',
+				'nopagin'        => true,
+				'posts_per_page' => '-1',
+				'orderby'        => 'title',
+				'order'          => 'ASC',
+			),
+			'repeatable' => true,
+			'allow_none' => true,
+			'cols'       => 12,
+		);
 		return $fields;
 	}
 }
