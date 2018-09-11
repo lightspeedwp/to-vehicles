@@ -8,7 +8,7 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area <?php echo lsx_main_class(); ?>">
+	<div id="primary" class="content-area <?php echo esc_attr( lsx_main_class() ); ?>">
 
 		<?php lsx_content_before(); ?>
 
@@ -56,13 +56,13 @@ get_header(); ?>
 							}
 							if ( false !== $gallery_id && '' !== $gallery_id ) {
 								?>
-								<li><a href="#gallery"><?php _e( 'Gallery', 'to-vehicles' ); ?></a></li>
+								<li><a href="#gallery"><?php esc_html_e( 'Gallery', 'to-vehicles' ); ?></a></li>
 							<?php } ?>
 							<?php
 							$videos = get_post_meta( get_the_ID(), 'videos', true );
 							if ( false !== $videos && '' !== $videos ) {
 								?>
-								<li><a href="#videos"><?php _e( 'Videos', 'to-vehicles' );?></a></li>
+								<li><a href="#videos"><?php esc_html_e( 'Videos', 'to-vehicles' ); ?></a></li>
 							<?php } ?>								
 						</ul>
 					</div>
@@ -95,12 +95,12 @@ get_header(); ?>
 		if ( $test ) {
 			?>
 			<section id="gallery">
-				<h2 class="section-title"><?php _e( 'Gallery', 'to-vehicles' ); ?></h2>	
+				<h2 class="section-title"><?php esc_html_e( 'Gallery', 'to-vehicles' ); ?></h2>	
 				<?php
 				if ( function_exists( 'Envira_Gallery' ) ) {
 					lsx_to_content( 'content', 'envira' );
 				} else {
-					echo do_shortcode( '[gallery ids="'. implode(',', $gallery_id ) . '" type="square" size="medium" columns="4"]' );
+					echo do_shortcode( '[gallery ids="' . implode( ',', $gallery_id ) . '" type="square" size="medium" columns="4"]' );
 				}
 				?>
 			</section>
@@ -108,7 +108,7 @@ get_header(); ?>
 		}
 		?>
 
-		<?php lsx_to_videos( '<section id="videos"><h2 class="section-title">' . __( 'Videos', 'to-vehicles' ) . '</h2>', '</section>'); ?>		
+		<?php lsx_to_videos( '<section id="videos"><h2 class="section-title">' . __( 'Videos', 'to-vehicles' ) . '</h2>', '</section>' ); ?>		
 
 		<?php lsx_content_bottom(); ?>
 
@@ -121,4 +121,5 @@ get_header(); ?>
 <?php get_sidebar(); ?>
 <?php get_sidebar( 'alt' ); ?>
 
-<?php get_footer();
+<?php
+get_footer();

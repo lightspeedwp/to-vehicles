@@ -71,8 +71,8 @@ if ( ! class_exists( 'LSX_TO_Vehicles' ) ) {
 				add_filter( 'lsx_to_framework_taxonomies_plural', array( $this, 'taxonomies_plural_filter' ) );
 			}
 
-			require_once( LSX_TO_VEHICLES_PATH . '/classes/class-to-vehicles-admin.php' );
-			require_once( LSX_TO_VEHICLES_PATH . '/classes/class-to-vehicles-frontend.php' );
+			require_once( LSX_TO_VEHICLES_PATH . '/classes/class-lsx-to-vehicles-admin.php' );
+			require_once( LSX_TO_VEHICLES_PATH . '/classes/class-lsx-to-vehicles-frontend.php' );
 			require_once( LSX_TO_VEHICLES_PATH . '/includes/template-tags.php' );
 
 			// flush_rewrite_rules()
@@ -92,7 +92,7 @@ if ( ! class_exists( 'LSX_TO_Vehicles' ) ) {
 		 * Load the plugin text domain for translation.
 		 */
 		public function load_plugin_textdomain() {
-			load_plugin_textdomain( 'to-vehicles', FALSE, basename( LSX_TO_VEHICLES_PATH ) . '/languages' );
+			load_plugin_textdomain( 'to-vehicles', false, basename( LSX_TO_VEHICLES_PATH ) . '/languages' );
 		}
 
 		/**
@@ -182,7 +182,7 @@ if ( ! class_exists( 'LSX_TO_Vehicles' ) ) {
 		 * Make TO last plugin to load.
 		 */
 		public function activated_plugin() {
-			if ( $plugins = get_option( 'active_plugins' ) ) {
+			if ( $plugins === get_option( 'active_plugins' ) ) {
 				$search = preg_grep( '/.*\/tour-operator\.php/', $plugins );
 				$key = array_search( $search, $plugins );
 

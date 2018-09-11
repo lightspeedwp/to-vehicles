@@ -61,7 +61,9 @@ class LSX_TO_Vehicles_Admin extends LSX_TO_Vehicles {
 			'show_in_menu'       => 'tour-operator',
 			'menu_position'      => 80,
 			'query_var'          => true,
-			'rewrite'            => array( 'slug' => 'vehicle' ),
+			'rewrite'            => array(
+				'slug' => 'vehicle',
+			),
 			'capability_type'    => 'post',
 			'has_archive'        => 'vehicles',
 			'hierarchical'       => true,

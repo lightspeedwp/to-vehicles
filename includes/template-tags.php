@@ -135,9 +135,12 @@ function lsx_vehicle_features() {
 				<div class="row">						
 					<?php if ( null !== $features ) { ?>
 						<div class="panel col-sm-12">
-							<h2 class="section-title"><?php _e( 'Features', 'to-vehicles' ); ?></h2>
+							<h2 class="section-title"><?php esc_html_e( 'Features', 'to-vehicles' ); ?></h2>
 							<div class="entry-content">
-								<?php echo apply_filters( 'the_content', wpautop( $features ) ); ?>
+								<?php
+									$the_feature = apply_filters( 'the_content', wpautop( $features ) );
+								?>
+								<?php echo esc_sql( $the_feature ); ?>
 							</div>
 						</div>
 					<?php } ?>

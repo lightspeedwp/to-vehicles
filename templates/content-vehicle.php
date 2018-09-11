@@ -32,14 +32,14 @@ if ( 1 !== $lsx_archive ) {
 					<?php lsx_to_tagline( '<p class="tagline">', '</p>' ); ?>
 				</header><!-- .entry-header -->				
 		<?php
-	}
+}
 		?>
 
 		<div <?php lsx_to_entry_class( 'entry-content' ); ?>>
 
 			<?php if ( is_single() ) { ?>
 				<div class="single-main-info">
-					<h3><?php _e( 'Summary', 'to-vehicles' ); ?></h3>
+					<h3><?php esc_html_e( 'Summary', 'to-vehicles' ); ?></h3>
 					<div class="meta taxonomies">
 						<?php the_terms( get_the_ID(), 'travel-style', '<div class="meta travel-style">' . __( 'Travel Style', 'to-vehicles' ) . ': ', ', ', '</div>' ); ?>
 						<?php lsx_to_connected_tours( '<div class="meta tours">' . __( 'Tours', 'to-vehicles' ) . ': ', '</div>' ); ?>
@@ -74,10 +74,10 @@ if ( 1 !== $lsx_archive ) {
 		<div class="col-sm-4">
 			<div class="vehicle-details">
 				<?php if ( false !== get_post_meta( get_the_ID(), 'code', true ) ) { ?>
-					<div class="meta code"><?php _e( 'Code', 'to-vehicles' ); ?>: <span><?php echo get_post_meta( get_the_ID(), 'code', true ); ?></span></div>
+					<div class="meta code"><?php esc_html_e( 'Code', 'to-vehicles' ); ?>: <span><?php echo esc_attr( get_post_meta( get_the_ID(), 'code', true ) ); ?></span></div>
 				<?php } ?>
 				<?php if ( false !== get_post_meta( get_the_ID(), 'seating', true ) ) { ?>
-					<div class="meta seats"><?php _e( 'Seats', 'to-vehicles' ); ?>: <span><?php echo get_post_meta( get_the_ID(), 'seating', true ); ?></span></div>
+					<div class="meta seats"><?php esc_html_e( 'Seats', 'to-vehicles' ); ?>: <span><?php echo esc_attr( get_post_meta( get_the_ID(), 'seating', true ) ); ?></span></div>
 				<?php } ?>				
 				<?php lsx_to_connected_tours( '<div class="meta tours">' . __( 'Tours', 'to-vehicles' ) . ': ', '</div>' ); ?>
 				<?php lsx_to_connected_accommodation( '<div class="meta accommodation">' . __( 'Accommodation', 'to-vehicles' ) . ': ', '</div>' ); ?>				
@@ -97,4 +97,5 @@ if ( 1 !== $lsx_archive ) {
 
 </article><!-- #post-## -->
 
-<?php lsx_entry_after();
+<?php
+lsx_entry_after();

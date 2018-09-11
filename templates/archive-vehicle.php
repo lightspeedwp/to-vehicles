@@ -10,7 +10,7 @@ get_header(); ?>
 
 	<?php lsx_content_wrap_before(); ?>
 
-	<section id="primary" class="content-area <?php echo lsx_main_class(); ?>">
+	<section id="primary" class="content-area <?php echo esc_html( lsx_main_class() ); ?>">
 
 		<?php lsx_content_before(); ?>
 
@@ -26,7 +26,10 @@ get_header(); ?>
 			lsx_content_top();
 		?>
 
-		<?php global $columns; $columns = 3; ?>
+		<?php
+			global $columns;
+			$columns = 3;
+		?>
 		<?php if ( have_posts() ) : ?>
 
 			<div class="row">
@@ -58,4 +61,5 @@ get_header(); ?>
 
 <?php get_sidebar(); ?>
 
-<?php get_footer();
+<?php
+	get_footer();

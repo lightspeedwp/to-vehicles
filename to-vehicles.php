@@ -24,4 +24,4 @@ define( 'LSX_TO_VEHICLES_VER', '1.0.3' );
 
 /* ======================= Below is the Plugin Class init ========================= */
 
-require_once( LSX_TO_VEHICLES_PATH . '/classes/class-to-vehicles.php' );
+require_once( LSX_TO_VEHICLES_PATH . '/classes/class-lsx-to-vehicles.php' );
