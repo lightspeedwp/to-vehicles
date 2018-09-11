@@ -165,7 +165,7 @@ function lsx_vehicle_accommodation() {
 			'from'   => 'accommodation',
 			'to'     => 'vehicle',
 			'column' => '3',
-			'before' => '<section id="accommodation"><h2 class="section-title">' . __( lsx_to_get_post_type_section_title( 'accommodation', '', 'Featured Accommodations' ), 'to-vehicles' ) . '</h2>',
+			'before' => '<section id="accommodation"><h2 class="section-title">' . lsx_to_get_post_type_section_title( 'accommodation', '', 'Featured Accommodations' ) . '</h2>',
 			'after'  => '</section>',
 		);
 		lsx_to_connected_panel_query( $args );
@@ -186,7 +186,7 @@ function lsx_vehicle_tours() {
 			'from'   => 'tour',
 			'to'     => 'vehicle',
 			'column' => '3',
-			'before' => '<section id="tours"><h2 class="section-title">' . __( lsx_to_get_post_type_section_title( 'tour', '', 'Featured Tours' ), 'to-vehicles' ) . '</h2>',
+			'before' => '<section id="tours"><h2 class="section-title">' . lsx_to_get_post_type_section_title( 'tour', '', 'Featured Tours' ) . '</h2>',
 			'after'  => '</section>',
 		);
 		lsx_to_connected_panel_query( $args );

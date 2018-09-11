@@ -182,7 +182,7 @@ if ( ! class_exists( 'LSX_TO_Vehicles' ) ) {
 		 * Make TO last plugin to load.
 		 */
 		public function activated_plugin() {
-			if ( $plugins === get_option( 'active_plugins' ) ) {
+			if ( get_option( 'active_plugins' ) === $plugins ) {
 				$search = preg_grep( '/.*\/tour-operator\.php/', $plugins );
 				$key = array_search( $search, $plugins );
 
