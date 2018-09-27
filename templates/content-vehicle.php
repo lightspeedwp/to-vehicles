@@ -14,7 +14,7 @@ if ( 1 !== $lsx_archive ) {
 <?php lsx_entry_before(); ?>
 
 <article id="tour-<?php echo esc_attr( $post->post_name ); ?>" <?php post_class( 'lsx-to-archive-container' ); ?>>
-	<?php lsx_entry_top(); ?>
+	
 	<?php if ( is_archive() ) { ?>
 		<div class="lsx-to-archive-thumb lsx-to-widget-thumb">	
 			<a href="<?php the_permalink(); ?>">
