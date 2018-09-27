@@ -16,25 +16,13 @@ get_header(); ?>
 
 		<main id="main" class="site-main" role="main">
 
-		<?php
-		/**
-		 * Hooked
-		 *
-		 *  - lsx_tour_operator_archive_header() - 100
-		 *  - lsx_tour_operator_archive_description() - 100
-		 */
-			lsx_content_top();
-		?>
+		<?php lsx_content_top(); ?>
 
-		<?php
-			global $columns;
-			$columns = 3;
-		?>
 		<?php if ( have_posts() ) : ?>
 
-			<div class="row">
+			<div class="row lsx-to-archive-items lsx-to-archive-template-grid lsx-to-archive-template-image-max-height">
 				<?php while ( have_posts() ) : the_post(); ?>
-					<div class="panel col-sm-12">
+					<div class="lsx-to-archive-item col-xs-12 col-sm-6 col-md-4 <?php echo esc_attr( lsx_to_archive_class( 'lsx-to-archive-item' ) ); ?>">
 						<?php lsx_vehicle_content( 'content', 'vehicle' ); ?>
 					</div>
 				<?php endwhile; ?>
@@ -47,9 +35,12 @@ get_header(); ?>
 
 		<?php endif; ?>
 
-		<?php lsx_content_bottom(); ?>
+		<div class="lsx-full-width vehicles-bottom text-center">
+			<h2><?php esc_html_e( 'See our vehicles in action in our gallery', 'to-vehicles' ); ?></h2>
+			<a href="/vehicles/" class="btn border-btn"><?php esc_html_e( 'See Gallery', 'to-vehicles' ); ?></a>
+		</div>
 
-		<?php lsx_to_sharing(); ?>
+		<?php lsx_content_bottom(); ?>
 
 		</main><!-- #main -->
 
