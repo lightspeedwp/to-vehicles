@@ -40,18 +40,31 @@ class LSX_TO_Vehicles_Frontend extends LSX_TO_Vehicles {
 		add_action( 'lsx_entry_top', array( $this, 'archive_entry_top' ), 15 );
 		add_action( 'lsx_entry_bottom', array( $this, 'archive_entry_bottom' ) );
 		add_action( 'lsx_content_bottom', array( $this, 'single_content_bottom' ) );
-		add_action( 'lsx_to_fast_facts', array( $this, 'single_fast_facts' ) );
+		//add_action( 'lsx_to_fast_facts', array( $this, 'single_fast_facts' ) );
 	}
 
 	/**
-	 * A filter to set the content area to a small column on single
+	 * Adds the template tags to the bottom of the single review
 	 */
-	public function entry_class( $classes ) {
-		global $post;
-		if ( is_main_query() && is_singular( $this->plugin_slug ) ) {
-			$classes[] = 'col-sm-9';
+	public function single_content_bottom() {
+		if ( is_singular( 'vehicle' ) ) {
+			// lsx_to_review_accommodation();
+
+			// lsx_to_review_tour();
+
+			// lsx_to_review_destination();
+
+			lsx_to_gallery( '<section id="gallery" class="lsx-to-section lsx-to-collapse-section"><h2 class="lsx-to-section-title lsx-to-collapse-title lsx-title" data-toggle="collapse" data-target="#collapse-gallery">' . esc_html__( 'Gallery', 'to-reviews' ) . '</h2><div id="collapse-gallery" class="collapse in"><div class="collapse-inner">', '</div></div></section>' );
+
+			if ( function_exists( 'lsx_to_videos' ) ) {
+				lsx_to_videos( '<section id="videos" class="lsx-to-section lsx-to-collapse-section"><h2 class="lsx-to-section-title lsx-to-collapse-title lsx-title" data-toggle="collapse" data-target="#collapse-videos">' . esc_html__( 'Videos', 'to-reviews' ) . '</h2><div id="collapse-videos" class="collapse in"><div class="collapse-inner">', '</div></div></section>' );
+			} elseif ( class_exists( 'Envira_Videos' ) ) {
+				lsx_to_envira_videos( '<section id="videos" class="lsx-to-section lsx-to-collapse-section"><h2 class="lsx-to-section-title lsx-to-collapse-title lsx-title" data-toggle="collapse" data-target="#collapse-videos">' . esc_html__( 'Videos', 'to-reviews' ) . '</h2><div id="collapse-videos" class="collapse in"><div class="collapse-inner">', '</div></div></section>' );
+			}
+
+			//lsx_to_review_posts();
 		}
-		return $classes;
 	}
+
 }
 new LSX_TO_Vehicles_Frontend();

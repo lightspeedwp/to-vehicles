@@ -25,12 +25,49 @@ class LSX_TO_Vehicles_Admin extends LSX_TO_Vehicles {
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_filter( 'cmb_meta_boxes', array( $this, 'register_metaboxes' ) );
 
+		add_filter( 'lsx_get_post-types_configs', array( $this, 'post_type_config' ), 10, 1 );
+		add_filter( 'lsx_get_metaboxes_configs', array( $this, 'meta_box_config' ), 10, 1 );
+
 		add_filter( 'lsx_to_destination_custom_fields', array( $this, 'custom_fields' ) );
 		add_filter( 'lsx_to_tour_custom_fields', array( $this, 'custom_fields' ) );
 		add_filter( 'lsx_to_accommodation_custom_fields', array( $this, 'custom_fields' ) );
 		add_filter( 'lsx_to_team_custom_fields', array( $this, 'custom_fields' ) );
+		add_filter( 'lsx_to_special_custom_fields', array( $this, 'custom_fields' ) );
 		add_filter( 'lsx_to_activity_custom_fields', array( $this, 'custom_fields' ) );
 	}
+
+	/**
+	 * Register the activity post type config
+	 *
+	 * @param  $objects
+	 * @return   array
+	 */
+	public function post_type_config( $objects ) {
+
+		foreach ( $this->post_types as $key => $label ) {
+			if ( file_exists( LSX_TO_VEHICLES_PATH . 'includes/post-types/config-' . $key . '.php' ) ) {
+				$objects[ $key ] = include LSX_TO_VEHICLES_PATH . 'includes/post-types/config-' . $key . '.php';
+			}
+		}
+
+		return 	$objects;
+	}
+
+	/**
+	 * Register the activity metabox config
+	 *
+	 * @param  $meta_boxes
+	 * @return   array
+	 */
+	public function meta_box_config( $meta_boxes ) {
+		foreach ( $this->post_types as $key => $label ) {
+			if ( file_exists( LSX_TO_VEHICLES_PATH . 'includes/metaboxes/config-' . $key . '.php' ) ) {
+				$meta_boxes[ $key ] = include LSX_TO_VEHICLES_PATH . 'includes/metaboxes/config-' . $key . '.php';
+			}
+		}
+		return 	$meta_boxes;
+	}
+
 	/**
 	 * Register the landing pages post type.
 	 */
@@ -367,29 +404,45 @@ class LSX_TO_Vehicles_Admin extends LSX_TO_Vehicles {
 	 * Adds in the gallery fields to the Tour Operators Post Types.
 	 */
 	public function custom_fields( $fields ) {
-		$post_type = get_post_type();
-		$fields[]  = array(
-			'id'   => 'vehicle_title',
-			'name' => 'Vehicles',
-			'type' => 'title',
-			'cols' => 12,
-		);
-		$fields[]  = array(
-			'id'         => 'vehicle_to_' . $post_type,
-			'name'       => 'Vehicles related with this ' . $post_type,
-			'type'       => 'post_select',
-			'use_ajax'   => false,
-			'query'      => array(
-				'post_type'      => 'vehicle',
-				'nopagin'        => true,
-				'posts_per_page' => '-1',
-				'orderby'        => 'title',
-				'order'          => 'ASC',
-			),
-			'repeatable' => true,
-			'allow_none' => true,
-			'cols'       => 12,
-		);
+		global $post, $typenow, $current_screen;
+
+		$post_type = false;
+		if ( $post && $post->post_type ) {
+			$post_type = $post->post_type;
+		} elseif ( $typenow ) {
+			$post_type = $typenow;
+		} elseif ( $current_screen && $current_screen->post_type ) {
+			$post_type = $current_screen->post_type;
+		} elseif ( isset( $_REQUEST['post_type'] ) ) {
+			$post_type = sanitize_key( $_REQUEST['post_type'] );
+		} elseif ( isset( $_REQUEST['post'] ) ) {
+			$post_type = get_post_type( sanitize_key( $_REQUEST['post'] ) );
+		}
+		//$post_type = get_post_type();
+		if ( false !== $post_type ) {
+			$fields[]  = array(
+				'id'   => 'vehicle_title',
+				'name' => 'Vehicles',
+				'type' => 'title',
+				'cols' => 12,
+			);
+			$fields[]  = array(
+				'id'         => 'vehicle_to_' . $post_type,
+				'name'       => 'Vehicles related with this ' . $post_type,
+				'type'       => 'post_select',
+				'use_ajax'   => false,
+				'query'      => array(
+					'post_type'      => 'vehicle',
+					'nopagin'        => true,
+					'posts_per_page' => '-1',
+					'orderby'        => 'title',
+					'order'          => 'ASC',
+				),
+				'repeatable' => true,
+				'allow_none' => true,
+				'cols'       => 12,
+			);
+		}
 		return $fields;
 	}
 }

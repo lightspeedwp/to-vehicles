@@ -1,33 +1,76 @@
 <?php
 /**
- * Activity Widget Content Part
+ * Vehicle Widget Content Part
  *
  * @package    lsx-tour-operators
- * @category   activity
+ * @category   vehicle
  * @subpackage widget
  */
-global $disable_placeholder;
+global $disable_placeholder, $disable_text, $post;
+
+$has_single = ! lsx_to_is_single_disabled();
+$permalink = '';
+
+if ( $has_single ) {
+	$permalink = get_the_permalink();
+} elseif ( ! is_post_type_archive( 'vehicle' ) ) {
+	$has_single = true;
+	$permalink = get_post_type_archive_link( 'vehicle' ) . '#vehicle-' . $post->post_name;
+}
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php if ( '1' !== $disable_placeholder && true !== $disable_placeholder ) { ?>
-		<div class="thumbnail">
-			<a href="<?php the_permalink(); ?>">
-				<?php lsx_thumbnail( 'lsx-thumbnail-wide' ); ?>
-			</a>
+
+	<?php lsx_widget_entry_top(); ?>
+
+	<?php if ( empty( $disable_placeholder ) ) { ?>
+		<div class="lsx-to-widget-thumb">
+			<?php if ( $has_single ) { ?><a href="<?php echo esc_url( $permalink ); ?>"><?php } ?>
+				<?php lsx_thumbnail( 'lsx-thumbnail-single' ); ?>
+			<?php if ( $has_single ) { ?></a><?php } ?>
 		</div>
 	<?php } ?>
 
-	<h4 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+	<div class="lsx-to-widget-content">
+		<?php lsx_widget_entry_content_top(); ?>
 
-	<div class="widget-content">
-		<?php if ( false !== get_post_meta( get_the_ID(), 'code', true ) ) { ?>
-			<div class="meta code"><?php esc_html_e( 'Code', 'to-vehicles' ); ?>: <span><?php echo esc_attr( get_post_meta( get_the_ID(), 'code', true ) ); ?></span></div>
-		<?php } ?>
-		<?php if ( false !== get_post_meta( get_the_ID(), 'seating', true ) ) { ?>
-			<div class="meta seats"><?php esc_html_e( 'Seats', 'to-vehicles' ); ?>: <span><?php echo esc_attr( get_post_meta( get_the_ID(), 'seating', true ) ); ?></span></div>
-		<?php } ?>
-		<div class="view-more" style="text-align:center;">
-			<a href="<?php the_permalink(); ?>" class="btn btn-primary text-center"><?php esc_html_e( 'View Vehicle', 'to-vehicles' ); ?></a>
-		</div>	
+		<h4 class="lsx-to-widget-title text-center">
+			<?php if ( false !== $has_single ) { ?>
+				<a href="<?php echo esc_url( $permalink ); ?>"><?php } ?>
+				<?php the_title(); ?>
+			<?php if ( false !== $has_single ) { ?>
+				</a>
+			<?php } ?>
+		</h4>
+
+		<div class="lsx-to-widget-meta-data">
+			<?php
+				$meta_class = 'lsx-to-meta-data lsx-to-meta-data-';
+			?>
+			<?php if ( false !== get_post_meta( get_the_ID(), 'code', true ) ) { ?>
+				<div class="meta code"><?php esc_html_e( 'Code', 'to-vehicles' ); ?>: <span <?php echo 'class="' . esc_html( $meta_class ) . 'code"'; ?>><?php echo esc_attr( get_post_meta( get_the_ID(), 'code', true ) ); ?></span></div>
+			<?php } ?>
+			<?php if ( false !== get_post_meta( get_the_ID(), 'seating', true ) ) { ?>
+				<div class="meta seats"><?php esc_html_e( 'Seats', 'to-vehicles' ); ?>: <span <?php echo 'class="' . esc_html( $meta_class ) . 'seats"'; ?>><?php echo esc_attr( get_post_meta( get_the_ID(), 'seating', true ) ); ?></span></div>
+			<?php } ?>
+		</div>
+
+		<?php
+			ob_start();
+			lsx_to_widget_entry_content_top();
+			the_excerpt();
+			lsx_to_widget_entry_content_bottom();
+			$excerpt = ob_get_clean();
+
+			if ( empty( $disable_text ) && ! empty( $excerpt ) ) {
+				echo wp_kses_post( $excerpt );
+			} elseif ( $has_single ) { ?>
+				<p><a href="<?php echo esc_url( $permalink ); ?>" class="moretag"><?php esc_html_e( 'View more', 'tour-operator' ); ?></a></p>
+			<?php
+		}
+		?>
+		<?php lsx_widget_entry_content_bottom(); ?>
 	</div>	
+	<?php lsx_widget_entry_bottom(); ?>
+
 </article>
+<?php lsx_widget_entry_after(); ?>
