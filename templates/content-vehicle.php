@@ -5,7 +5,9 @@
  * @package    lsx-tour-operators
  * @category   vehicle
  */
+
 global $lsx_archive, $lsx_to_archive, $post;
+
 if ( 1 !== $lsx_archive ) {
 	$lsx_archive = false;
 }
@@ -14,6 +16,7 @@ if ( 1 !== $lsx_archive ) {
 <?php lsx_entry_before(); ?>
 
 <article id="tour-<?php echo esc_attr( $post->post_name ); ?>" <?php post_class( 'lsx-to-archive-container' ); ?>>
+
 <?php if ( is_archive() ) { ?>
 	<div class="lsx-to-archive-thumb lsx-to-widget-thumb">	
 		<a href="<?php the_permalink(); ?>">
@@ -38,7 +41,7 @@ if ( 1 !== $lsx_archive ) {
 
 			<?php if ( is_single() ) { ?>
 				<div <?php lsx_to_entry_class( 'entry-content' ); ?>>
-					<div class="col-xs-12 col-sm-12 col-md-6">
+					<div class="col-xs-12 col-sm-12 col-md-7">
 						<div class="lsx-to-summary">
 							<h2 class="lsx-to-summary-title"><?php the_title(); ?></h2>
 						</div>
@@ -51,7 +54,7 @@ if ( 1 !== $lsx_archive ) {
 						<?php lsx_to_sharing(); ?>
 					</div>
 				</div>
-				<div class="col-xs-12 col-sm-12 col-md-6">
+				<div class="col-xs-12 col-sm-12 col-md-5">
 					<section id="fast-facts">
 						<div class="vehicle-summary">
 							<div class="lsx-to-archive-thumb lsx-to-widget-thumb">	
@@ -63,12 +66,15 @@ if ( 1 !== $lsx_archive ) {
 								<h3 class="lsx-to-section-title"><?php esc_html_e( 'Vehicle Summary', 'tour-operator' ); ?></h3>
 								<div class="lsx-to-single-meta-data">
 									<div class="meta taxonomies">
-										<?php lsx_vehicle_code( '<div class="meta code">' . __( 'Code', 'to-vehicles' ) . ': ', '</div>' ); ?>
-										<?php lsx_vehicle_engine_type( '<div class="meta engine-type"><span class="entry-meta-key">' . __( 'Engine Type', 'to-vehicles' ) . '</span>: ', '</div>' ); ?>
-										<?php lsx_vehicle_gearbox( '<div class="meta gearbox"><span class="entry-meta-key">' . __( 'Gearbox', 'to-vehicles' ) . '</span>: ', '</div>' ); ?>
-										<?php lsx_vehicle_engine_size( '<div class="meta engine-size"><span class="entry-meta-key">' . __( 'Engine-size', 'to-vehicles' ) . '</span>: ', '</div>' ); ?>
-										<?php lsx_vehicle_gears( '<div class="meta gears"><span class="entry-meta-key">' . __( 'Gears', 'to-vehicles' ) . '</span>: ', '</div>' ); ?>
-										<?php lsx_vehicle_seating( '<div class="meta seating"><span class="entry-meta-key">' . __( 'Seating', 'to-vehicles' ) . '</span>: ', '</div>' ); ?>
+										<?php //lsx_vehicle_code( '<div class="meta code">' . __( 'Code', 'to-vehicles' ) . ': ', '</div>' ); ?>
+										<?php lsx_vehicle_type( '<div class="meta vehicle-type"><span class="entry-meta-key">' . __( 'Type', 'to-vehicles' ) . '</span>: ', '</div>' ); ?>
+										<?php lsx_vehicle_seating( '<div class="meta seating"><span class="entry-meta-key">' . __( 'Seats', 'to-vehicles' ) . '</span>: ', '</div>' ); ?>
+										<?php lsx_vehicle_price( '<div class="meta seating"><span class="entry-meta-key">' . __( 'Price Guide', 'to-vehicles' ) . '</span>: ', '</div>' ); ?>
+										<?php //lsx_vehicle_engine_type( '<div class="meta vehicle-type"><span class="entry-meta-key">' . __( 'Engine Type', 'to-vehicles' ) . '</span>: ', '</div>' ); ?>
+										<?php //lsx_vehicle_gearbox( '<div class="meta gearbox"><span class="entry-meta-key">' . __( 'Gearbox', 'to-vehicles' ) . '</span>: ', '</div>' ); ?>
+										<?php //lsx_vehicle_engine_size( '<div class="meta engine-size"><span class="entry-meta-key">' . __( 'Engine-size', 'to-vehicles' ) . '</span>: ', '</div>' ); ?>
+										<?php //lsx_vehicle_gears( '<div class="meta gears"><span class="entry-meta-key">' . __( 'Gears', 'to-vehicles' ) . '</span>: ', '</div>' ); ?>
+										
 									</div>
 								</div>
 							</div>

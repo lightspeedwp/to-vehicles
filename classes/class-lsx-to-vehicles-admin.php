@@ -156,6 +156,16 @@ class LSX_TO_Vehicles_Admin extends LSX_TO_Vehicles {
 			),
 		);
 		$fields[] = array(
+			'id'   => 'vehicle_type',
+			'name' => 'Vehicle Type',
+			'type' => 'text',
+		);
+		$fields[] = array(
+			'id'   => 'price',
+			'name' => 'Price Guide',
+			'type' => 'text',
+		);
+		$fields[] = array(
 			'id'      => 'engine_type',
 			'name'    => 'Engine Type',
 			'type'    => 'radio',

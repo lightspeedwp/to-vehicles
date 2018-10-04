@@ -34,6 +34,36 @@ function lsx_vehicle_code( $before = '', $after = '', $echo = true ) {
 	lsx_to_custom_field_query( 'code', $before, $after, $echo );
 }
 /**
+ * Outputs the current vehicles vehicle_type.
+ *
+ * @param       $before | string
+ * @param       $after  | string
+ * @param       $echo   | boolean
+ * @return      string
+ *
+ * @package     lsx-tour-operators
+ * @subpackage  template-tags
+ * @category    vehicle
+ */
+function lsx_vehicle_type( $before = '', $after = '', $echo = true ) {
+	lsx_to_custom_field_query( 'vehicle_type', $before, $after, $echo );
+}
+/**
+ * Outputs the current vehicles price.
+ *
+ * @param       $before | string
+ * @param       $after  | string
+ * @param       $echo   | boolean
+ * @return      string
+ *
+ * @package     lsx-tour-operators
+ * @subpackage  template-tags
+ * @category    vehicle
+ */
+function lsx_vehicle_price( $before = '', $after = '', $echo = true ) {
+	lsx_to_custom_field_query( 'price', $before, $after, $echo );
+}
+/**
  * Outputs the current vehicles engine_type.
  *
  * @param       $before | string
