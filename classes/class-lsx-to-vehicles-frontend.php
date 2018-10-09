@@ -19,6 +19,20 @@
 class LSX_TO_Vehicles_Frontend extends LSX_TO_Vehicles {
 
 	/**
+	 * Holds the $page_links array while its being built on the single team page.
+	 *
+	 * @var array
+	 */
+	public $page_links = false;
+
+	/**
+	 * Holds the array of options.
+	 *
+	 * @var array
+	 */
+	public $options = false;
+
+	/**
 	 * Constructor
 	 */
 	public function __construct() {
@@ -29,18 +43,20 @@ class LSX_TO_Vehicles_Frontend extends LSX_TO_Vehicles {
 		add_filter( 'lsx_to_entry_class', array( $this, 'entry_class' ) );
 		add_action( 'init', array( $this, 'init' ) );
 
-		if ( ! class_exists( 'LSX_Template_Redirects' ) ) {
-			require_once( LSX_TO_VEHICLES_PATH . 'classes/class-lsx-template-redirects.php' );
+		if ( ! class_exists( 'LSX_TO_Template_Redirects' ) ) {
+			require_once( LSX_TO_VEHICLES_PATH . 'classes/class-lsx-to-template-redirects.php' );
 		}
-		$this->redirects = new LSX_Template_Redirects( LSX_TO_VEHICLES_PATH, array_keys( $this->post_types ) );
+		$this->redirects = new LSX_TO_Template_Redirects( LSX_TO_VEHICLES_PATH, array_keys( $this->post_types ) );
 		add_action( 'lsx_vehicle_content', array( $this->redirects, 'content_part' ), 10, 2 );
 
 		add_filter( 'lsx_to_page_navigation', array( $this, 'page_links' ) );
 
-		add_action( 'lsx_entry_top', array( $this, 'archive_entry_top' ), 15 );
-		add_action( 'lsx_entry_bottom', array( $this, 'archive_entry_bottom' ) );
+		//add_action( 'lsx_entry_top', array( $this, 'archive_entry_top' ), 15 );
+		//add_action( 'lsx_entry_bottom', array( $this, 'archive_entry_bottom' ) );
 		add_action( 'lsx_content_bottom', array( $this, 'single_content_bottom' ) );
 		//add_action( 'lsx_to_fast_facts', array( $this, 'single_fast_facts' ) );
+
+		add_action( 'lsx_banner_allowed_post_types', array( $this, 'theme_allowed_post_type_banners' ) );
 	}
 
 	/**
@@ -63,6 +79,69 @@ class LSX_TO_Vehicles_Frontend extends LSX_TO_Vehicles {
 			}
 
 			//lsx_to_review_posts();
+		}
+	}
+
+	/**
+	 * Adds our navigation links to the team single post
+	 *
+	 * @param $page_links array
+	 * @return $page_links array
+	 */
+	public function page_links( $page_links ) {
+		if ( is_singular( 'vehicle' ) ) {
+			$this->page_links = $page_links;
+			$this->get_gallery_link();
+			$this->get_videos_link();
+
+			$page_links = $this->page_links;
+		}
+
+		return $page_links;
+	}
+
+	/**
+	 * Tests for the Gallery and returns a link for the section
+	 */
+	public function get_gallery_link() {
+		$gallery_ids = get_post_meta( get_the_ID(), 'gallery', false );
+		$envira_gallery = get_post_meta( get_the_ID(), 'envira_gallery', true );
+
+		if ( ( ! empty( $gallery_ids ) && is_array( $gallery_ids ) ) || ( function_exists( 'envira_gallery' ) && ! empty( $envira_gallery ) && false === lsx_to_enable_envira_banner() ) ) {
+			if ( function_exists( 'envira_gallery' ) && ! empty( $envira_gallery ) && false === lsx_to_enable_envira_banner() ) {
+				// Envira Gallery.
+				$this->page_links['gallery'] = esc_html__( 'Gallery', 'to-vehicles' );
+				return;
+			} else {
+				if ( function_exists( 'envira_dynamic' ) ) {
+					// Envira Gallery - Dynamic.
+					$this->page_links['gallery'] = esc_html__( 'Gallery', 'to-vehicles' );
+					return;
+				} else {
+					// WordPress Gallery.
+					$this->page_links['gallery'] = esc_html__( 'Gallery', 'to-vehicles' );
+					return;
+				}
+			}
+		}
+	}
+
+	/**
+	 * Tests for the Videos and returns a link for the section
+	 */
+	public function get_videos_link() {
+		$videos_id = false;
+
+		if ( class_exists( 'Envira_Videos' ) ) {
+			$videos_id = get_post_meta( get_the_ID(), 'envira_video', true );
+		}
+
+		if ( empty( $videos_id ) && function_exists( 'lsx_to_videos' ) ) {
+			$videos_id = get_post_meta( get_the_ID(), 'videos', true );
+		}
+
+		if ( ! empty( $videos_id ) ) {
+			$this->page_links['videos'] = esc_html__( 'Videos', 'to-vehicles' );
 		}
 	}
 

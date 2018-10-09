@@ -78,7 +78,6 @@ if ( ! class_exists( 'LSX_TO_Vehicles' ) ) {
 			// flush_rewrite_rules()
 			register_activation_hook( LSX_TO_VEHICLES_CORE, array( $this, 'register_activation_hook' ) );
 			add_action( 'admin_init', array( $this, 'register_activation_hook_check' ) );
-			add_action( 'lsx_banner_allowed_post_types', 'theme_allowed_post_type_banners' );
 		}
 
 		/**
