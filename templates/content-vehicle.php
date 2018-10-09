@@ -78,25 +78,21 @@ if ( 1 !== $lsx_archive ) {
 									</div>
 								</div>
 							</div>
-							<div class="vehicle-enquire lsx-to-section-inner">
-								<div class="entry-meta-single">
-									<?php if ( lsx_to_has_enquiry_contact() ) : ?>
-										<div class="col-xs-12 col-sm-12 col-md-6">
-											<div class="lsx-to-contact-widget">
-												<?php
-												if ( function_exists( 'lsx_to_has_team_member' ) && lsx_to_has_team_member() ) {
-													lsx_to_team_member_panel( '<div class="lsx-to-contact">', '</div>' );
-												} else {
-													lsx_to_enquiry_contact( '<div class="lsx-to-contact">', '</div>' );
-												}
+							<?php if ( lsx_to_has_enquiry_contact() ) : ?>
+								<div class="col-xs-12 col-sm-12 col-md-6">
+									<div class="lsx-to-contact-widget">
+										<?php
+										if ( function_exists( 'lsx_to_has_team_member' ) && lsx_to_has_team_member() ) {
+											lsx_to_team_member_panel( '<div class="lsx-to-contact">', '</div>' );
+										} else {
+											lsx_to_enquiry_contact( '<div class="lsx-to-contact">', '</div>' );
+										}
 
-												lsx_to_enquire_modal();
-												?>
-											</div>
-										</div>
-									<?php endif ?>
+										lsx_to_enquire_modal();
+										?>
+									</div>
 								</div>
-							</div>
+							<?php endif ?>
 						</div>
 					</section>
 				</div>
@@ -119,15 +115,6 @@ if ( 1 !== $lsx_archive ) {
 				</div>
 			<?php } ?>
 		</div><!-- .entry-content -->
-
-	<?php if ( is_singular() && false === $lsx_archive && function_exists( 'lsx_to_has_team_member' ) && lsx_to_has_team_member() ) { ?>
-		<div class="col-sm-3">
-			<div class="team-member-widget">
-				<?php lsx_to_team_member_panel( '<div class="team-member">', '</div>' ); ?>
-				<?php lsx_to_enquire_modal(); ?>
-			</div>
-		</div>
-	<?php } ?>		
 
 	<?php if ( is_archive() ) { ?>		
 		</div>
