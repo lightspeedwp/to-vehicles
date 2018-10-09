@@ -38,10 +38,10 @@ class LSX_TO_Vehicles_Frontend extends LSX_TO_Vehicles {
 	public function __construct() {
 		$this->set_vars();
 
-		add_action( 'wp_head', array( $this, 'change_single_vehicles_layout' ), 20, 1 );
+		add_action( 'wp_head', array( $this, 'wp_head' ), 20, 1 );
 
-		add_filter( 'lsx_to_entry_class', array( $this, 'entry_class' ) );
-		add_action( 'init', array( $this, 'init' ) );
+		//add_filter( 'lsx_to_entry_class', array( $this, 'entry_class' ) );
+		//add_action( 'init', array( $this, 'init' ) );
 
 		if ( ! class_exists( 'LSX_TO_Template_Redirects' ) ) {
 			require_once( LSX_TO_VEHICLES_PATH . 'classes/class-lsx-to-template-redirects.php' );
@@ -56,6 +56,12 @@ class LSX_TO_Vehicles_Frontend extends LSX_TO_Vehicles {
 		add_action( 'lsx_content_bottom', array( $this, 'single_content_bottom' ) );
 
 		add_action( 'lsx_banner_allowed_post_types', array( $this, 'theme_allowed_post_type_banners' ) );
+	}
+
+	function wp_head() {
+		if ( is_singular( 'vehicle' ) ) {
+			remove_action( 'lsx_entry_bottom', 'lsx_to_single_entry_bottom' );
+		}
 	}
 
 	/**
