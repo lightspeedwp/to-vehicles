@@ -25,8 +25,8 @@ class LSX_TO_Vehicles_Admin extends LSX_TO_Vehicles {
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_filter( 'cmb_meta_boxes', array( $this, 'register_metaboxes' ) );
 
-		add_filter( 'lsx_get_post-types_configs', array( $this, 'post_type_config' ), 10, 1 );
-		add_filter( 'lsx_get_metaboxes_configs', array( $this, 'meta_box_config' ), 10, 1 );
+		//add_filter( 'lsx_get_post-types_configs', array( $this, 'post_type_config' ), 10, 1 );
+		//add_filter( 'lsx_get_metaboxes_configs', array( $this, 'meta_box_config' ), 10, 1 );
 
 		add_filter( 'lsx_to_destination_custom_fields', array( $this, 'custom_fields' ) );
 		add_filter( 'lsx_to_tour_custom_fields', array( $this, 'custom_fields' ) );
@@ -400,6 +400,8 @@ class LSX_TO_Vehicles_Admin extends LSX_TO_Vehicles {
 			'sortable'   => true,
 			'allow_none' => true,
 		);
+
+		$fields = apply_filters( 'lsx_to_vehicle_custom_fields', $fields );
 
 		$meta_boxes[] = array(
 			'title'  => 'Tour Operator Plugin',

@@ -54,7 +54,6 @@ class LSX_TO_Vehicles_Frontend extends LSX_TO_Vehicles {
 		//add_action( 'lsx_entry_top', array( $this, 'archive_entry_top' ), 15 );
 		//add_action( 'lsx_entry_bottom', array( $this, 'archive_entry_bottom' ) );
 		add_action( 'lsx_content_bottom', array( $this, 'single_content_bottom' ) );
-		//add_action( 'lsx_to_fast_facts', array( $this, 'single_fast_facts' ) );
 
 		add_action( 'lsx_banner_allowed_post_types', array( $this, 'theme_allowed_post_type_banners' ) );
 	}
