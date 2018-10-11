@@ -98,10 +98,10 @@ if ( 1 !== $lsx_archive ) {
 						<div class="lsx-to-archive-meta-data lsx-to-archive-meta-data-grid-mode">
 							<div class="vehicle-details">
 								<?php if ( false !== get_post_meta( get_the_ID(), 'type', true ) ) { ?>
-									<div class="meta type lsx-to-meta-data lsx-to-meta-data-price"><?php esc_html_e( 'Type', 'to-vehicles' ); ?>: <span><?php echo esc_attr( get_post_meta( get_the_ID(), 'type', true ) ); ?></span></div>
+									<div class="meta type lsx-to-meta-data lsx-to-meta-data-type"><?php esc_html_e( 'Type', 'to-vehicles' ); ?>: <span><?php echo esc_attr( get_post_meta( get_the_ID(), 'vehicle_type', true ) ); ?></span></div>
 								<?php } ?>
 								<?php if ( false !== get_post_meta( get_the_ID(), 'seating', true ) ) { ?>
-									<div class="meta seats lsx-to-meta-data lsx-to-meta-data-price"><?php esc_html_e( 'Seats', 'to-vehicles' ); ?>: <span><?php echo esc_attr( get_post_meta( get_the_ID(), 'seating', true ) ); ?></span></div>
+									<div class="meta seats lsx-to-meta-data lsx-to-meta-data-seating"><?php esc_html_e( 'Seats', 'to-vehicles' ); ?>: <span><?php echo esc_attr( get_post_meta( get_the_ID(), 'seating', true ) ); ?></span></div>
 								<?php } ?>
 								<?php if ( false !== get_post_meta( get_the_ID(), 'price', true ) ) { ?>
 									<div class="meta price lsx-to-meta-data lsx-to-meta-data-price"><?php esc_html_e( 'Price guide', 'to-vehicles' ); ?>: <span><?php echo esc_attr( get_post_meta( get_the_ID(), 'price', true ) ); ?></span></div>
@@ -117,7 +117,7 @@ if ( 1 !== $lsx_archive ) {
 				<?php if ( is_archive() ) { ?>
 			</div>
 		</div>
-	<?php echo '<a class="moretag" href="' . get_permalink() . '" title="' . __( 'View more', 'to-vehicles' ) . '">', 'View More</a>'; ?>
+	<?php echo '<a class="moretag" href="' . wp_kses_post( get_permalink() ) . '" title="View more">', 'View More</a>'; ?>
 	<?php } ?>
 
 		<?php

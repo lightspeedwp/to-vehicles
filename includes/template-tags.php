@@ -170,7 +170,7 @@ function lsx_vehicle_features() {
 								<?php
 									$the_feature = apply_filters( 'the_content', $features );
 								?>
-								<?php echo $the_feature; ?>
+								<?php echo wp_kses_post( $the_feature ); ?>
 							</div>
 						</div>
 					<?php } ?>
