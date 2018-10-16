@@ -1,11 +1,11 @@
 === Tour Operator Vehicles ===
 Contributors: feedmymedia
 Donate link: https://www.lsdev.biz/product/tour-operator-vehicles/
-Tags: tour operator, lsx theme, accommodation, post type, destinations
+Tags: tour operator, lsx theme, accommodation, vehicles, destinations
 Requires at least: 4.3
 Tested up to: 4.9.4
 Requires PHP: 7.0
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv3
 
 Adds the vehicles post type to your tour operator website, which you can feature as part of destinations, accommodations and tours.
@@ -44,3 +44,9 @@ Bugs can be reported either in our support forum or preferably on the [Tour Oper
 Yes you can! Join in on our [GitHub repository](https://github.com/lightspeeddevelopment/to-vehicles) :)
 
 == Screenshots ==
+
+1. Vehicles main page
+2. Single Vehicle
+3. Single Vehicle Gallery
+4. Admin area settings
+5. Vehicle list in the admin area 
