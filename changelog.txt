@@ -2,6 +2,14 @@
 
 ### 1.0.4
 * Dev - Standardized the Gallery and Video fields
+* Dev - Vehicle Page layout single changes 
+* Fix - Updating templates to show widget
+* Fix - Adding correct post types 
+* Fix - Added in the LSX redirect class
+* Fix - Added in the redirects class, and changed the setting to partials
+* Fix - Commenting out the unused fuctions
+* Fix - Added in the call to the enquire modal
+* Fix - Adding final fixes for travis
 
 ### 1.0.3
 * Fix - Make the addon compatible with the latest version from TO Search addon

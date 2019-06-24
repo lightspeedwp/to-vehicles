@@ -1,47 +1,56 @@
 === Tour Operator Vehicles ===
 Contributors: feedmymedia
-Donate link: https://www.lsdev.biz/product/tour-operator-vehicles/
+Donate link: https://donate.lsdev.biz/
 Tags: tour operator, lsx theme, accommodation, vehicles, destinations
-Requires at least: 4.3
-Tested up to: 4.9.4
+Requires at least: 4.7
+Tested up to: 5.2.2
 Requires PHP: 7.0
 Stable tag: 1.0.4
 License: GPLv3
+License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 
-Adds the vehicles post type to your tour operator website, which you can feature as part of destinations, accommodations and tours.
+Welcome to the [Tour Operator Vehicles extension](https://tour-operator.lsdev.biz/extensions/vehicles/).
 
-== Description ==
+If you haven't yet had the chance to [install and configure the Tour Operator Plugin](https://tour-operator.lsdev.biz), you should do that before proceeding here! 
 
-Get your visitors excited about what they’ll be doing when they travel with you, whether it’s river rafting, whale watching or sandboarding – use the Activities post type with beautiful imagery and well-crafted copy and then set the Vehicles as connected to particular tours, destinations and accommodations.
+To help convince travellers of their comfort and safety when traveling with you, we’ve created the [Vehicles extension](https://tour-operator.lsdev.biz/extensions/vehicles/).
 
-= Works with the LSX Theme =
-We've also made a fantastic [theme](https://www.lsdev.biz/product/lsx-wordpress-theme/) that works well with the Tour Operation Vehicles plugin.
+Fill in your fleets’ specs and display your vehicles on connected tours and  destinations. 
 
-= It's free, and always will be. =
-We’re firm believers in open source - that’s why we’re releasing the Tour Operator Vehicles plugin for free, forever. We offer free support on the [Tour Operator Vehicles support forums](https://wordpress.org/support/plugin/tour-operator-vehicles).
+With a range of avaiable options such as; type and number of gears, engine type (petrol/diesel), number of seats, vehicle code, and of course images and copy.
 
-= Support =
-We offer premium support for this plugin. Premium support that can be purchased via [lsdev.biz](https://www.lsdev.biz/).
+== Works with the LSX Theme ==
 
-== Installation ==
+The [Tour Operator Plugin](https://tour-operator.lsdev.biz) and [Extensions](https://tour-operator.lsdev.biz/extensions/) are designed to work seamlessly with the LSX theme. 
 
-1. Upload the plugin files to the `/wp-content/plugins/to-vehicles` directory, or install the plugin through the WordPress plugins screen directly.
-2. Activate the plugin through the 'Plugins' screen in WordPress
+We are always updating our software to add functionality, and maintain latest security protocols. 
 
-== Frequently Asked Questions ==
+== Gutenberg Compatible Plugin ==
 
-= Where can I get support or talk to other users =
-If you get stuck, you can ask for help in the [our Operator Vehicles plugin forum](https://wordpress.org/plugins/tour-operator-vehicles/).
-For help with premium add-ons from LightSpeed, use [our contact page](https://www.lsdev.biz/contact-us/)
+Have you updated to the new WordPress Gutenberg editor? We've got you covered! The Tour Operator Vehicles Plugin has been optimised for the Gutenberg update. 
 
-= Will the Tour Operator Vehicles plugin work with my theme 
-No; the Tour Operator Vehicles plugin will only work with LSX Theme.
+Check out our [our Tour Operator dedicated website](https://tour-operator.lsdev.biz/) to check out all our available extensions and features.
 
-= Where can I report bugs or contribute to the project? =
-Bugs can be reported either in our support forum or preferably on the [Tour Operator Vehicles GitHub repository](https://github.com/lightspeeddevelopment/lsx/issues).
+== It's free, and always will be. ==
+We’re firm believers in open source - that’s why this extension is free, and that won't change. 
 
-= The Tour Operator Vehicles plugin is awesome! Can I contribute? =
-Yes you can! Join in on our [GitHub repository](https://github.com/lightspeeddevelopment/to-vehicles) :)
+We are constantly maintaining and updating our extension so you have the latest and greatest abilities on your LSX Theme powered site. 
+
+== Tour Operator Vehicles Documentation ==
+
+Anything you need to double check, or simply need a walkthrough for setting up the extension? Visit the [Tour Operator Vehicles documentation](https://tour-operator.lsdev.biz/documentation/extension/vehicles/).
+
+== Tour Operator Vehicles Help & Support ==
+
+We offer premium support for this plugin. Premium support that can be purchased [via our website](https://www.lsdev.biz/services/support/).
+
+If you are experiencing issues with the Tour Operator Vehicles Plugin & have experience with Github, please log any bug issues you are having on the [Tour Operator Vehicles Github Issues](https://github.com/lightspeeddevelopment/to-vehicles/issues/) page.
+
+== Contributing to the Tour Operator Vehicles Plugin ==
+
+If you're a developer who's spotted a bug issue and have a fix, or simply have the functionality you think would extend our core theme, we are always happy to accept your contribution! 
+
+Visit the [Tour Operator Vehicles Plugin on Github](https://github.com/lightspeeddevelopment/to-vehicles/) and submit a Pull Request with your updates.
 
 == Screenshots ==
 
