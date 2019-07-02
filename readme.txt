@@ -1,8 +1,8 @@
 === Tour Operator Vehicles ===
 Contributors: feedmymedia
 Donate link: https://donate.lsdev.biz/
-Tags: tour operator, lsx theme, accommodation, vehicles, destinations
-Requires at least: 4.7
+Tags: tour operator, lsx, accommodation, vehicles, destinations
+Requires at least: 4.9
 Tested up to: 5.2.2
 Requires PHP: 7.0
 Stable tag: 1.0.4
