@@ -203,6 +203,29 @@ function lsx_vehicle_accommodation() {
 }
 
 /**
+ * Outputs the connected vehicles for a destination
+ *
+ * @package 	lsx-tour-operators
+ * @subpackage	template-tags
+ * @category 	vehicle
+ */
+function lsx_to_destination_vehicles() {
+	global $lsx_archive;
+
+	if ( post_type_exists( 'vehicle' ) && is_singular( 'destination' ) ) {
+		$args = array(
+			'from'		=> 'vehicle',
+			'to'		=> 'destination',
+			'column'	=> '3',
+			'before'	=> '<section id="vehicle" class="lsx-to-section lsx-to-collapse-section"><h2 class="lsx-to-section-title lsx-to-collapse-title lsx-title" data-toggle="collapse" data-target="#collapse-special">' . __( lsx_to_get_post_type_section_title( 'vehicle', '', 'Featured Vehicles' ), 'to-vehicles' ) . '</h2><div id="collapse-vehicle" class="collapse in"><div class="collapse-inner">',
+			'after'		=> '</div></div></section>',
+		);
+
+		lsx_to_connected_panel_query( $args );
+	}
+}
+
+/**
  * Outputs the connected tours only a vehicle
  *
  * @package     lsx-tour-operators

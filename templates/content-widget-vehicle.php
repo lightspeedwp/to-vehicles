@@ -47,16 +47,15 @@ if ( $has_single ) {
 				$meta_class = 'lsx-to-meta-data lsx-to-meta-data-';
 			?>
 			<?php if ( false !== get_post_meta( get_the_ID(), 'vehicle_type', true ) ) { ?>
-				<div class="meta type"><?php esc_html_e( 'Type', 'to-vehicles' ); ?>: <span <?php echo 'class="' . esc_html( $meta_class ) . 'type"'; ?>><?php echo esc_attr( get_post_meta( get_the_ID(), 'vehicle_type', true ) ); ?></span></div>
+				<div <?php echo 'class="' . esc_html( $meta_class ) . 'type"'; ?>><span class="lsx-to-meta-data-key"><?php esc_html_e( 'Type', 'to-vehicles' ); ?>:</span> <?php echo esc_attr( get_post_meta( get_the_ID(), 'vehicle_type', true ) ); ?></div>
 			<?php } ?>
 			<?php if ( false !== get_post_meta( get_the_ID(), 'seating', true ) ) { ?>
-				<div class="meta seating"><?php esc_html_e( 'Seats', 'to-vehicles' ); ?>: <span <?php echo 'class="' . esc_html( $meta_class ) . 'seating"'; ?>><?php echo esc_attr( get_post_meta( get_the_ID(), 'seating', true ) ); ?></span></div>
+				<div <?php echo 'class="' . esc_html( $meta_class ) . 'seating"'; ?>><span class="lsx-to-meta-data-key"><?php esc_html_e( 'Seats', 'to-vehicles' ); ?>:</span> <?php echo esc_attr( get_post_meta( get_the_ID(), 'seating', true ) ); ?></div>
 			<?php } ?>
 			<?php if ( false !== get_post_meta( get_the_ID(), 'price', true ) ) { ?>
-				<div class="meta price"><?php esc_html_e( 'Price Guide', 'to-vehicles' ); ?>: <span <?php echo 'class="' . esc_html( $meta_class ) . 'price"'; ?>><?php echo esc_attr( get_post_meta( get_the_ID(), 'price', true ) ); ?></span></div>
+				<div <?php echo 'class="' . esc_html( $meta_class ) . 'price"'; ?>><span class="lsx-to-meta-data-key"><?php esc_html_e( 'Price Guide', 'to-vehicles' ); ?>:</span> <?php echo esc_attr( get_post_meta( get_the_ID(), 'price', true ) ); ?></div>
 			<?php } ?>
 		</div>
-
 		<?php
 			ob_start();
 			lsx_to_widget_entry_content_top();
