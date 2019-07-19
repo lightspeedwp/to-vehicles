@@ -1,4 +1,8 @@
 var gulp = require('gulp');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var sort = require('gulp-sort');
+var wppot = require('gulp-wp-pot');
 
 gulp.task('default', function() {	 
 	console.log('Use the following commands');
@@ -10,25 +14,29 @@ gulp.task('default', function() {
 	console.log('gulp reload-node-js	Copy over the .js files from teh various node modules');
 });
 
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var sort = require('gulp-sort');
-var wppot = require('gulp-wp-pot');
-
-gulp.task('js', function () {
-	gulp.src('assets/js/to-vehicles.js')
+gulp.task('js', function (done) {
+	return gulp.src('assets/js/to-vehicles.js')
 		.pipe(concat('to-vehicles.min.js'))
 		.pipe(uglify())
-		.pipe(gulp.dest('assets/js'));
-});
-gulp.task('compile-js', (['js']));
-
-gulp.task('watch', function() {
-	gulp.watch('assets/js/to-vehicles.js', ['js']);
+		.pipe(gulp.dest('assets/js')),
+		done();
 });
 
-gulp.task('wordpress-pot', function () {
-	gulp.src('**/*.php')
+gulp.task('compile-js', gulp.series( ['js'] , function(done) {
+	done();
+}));
+
+gulp.task('watch-js', function (done) {
+	done();
+	return gulp.watch('assets/js/to-vehicles.js', gulp.series('compile-js'));
+});
+
+gulp.task('watch', gulp.series( ['watch-js'] , function(done) {
+	done();
+}));
+
+gulp.task('wordpress-pot', function (done) {
+	return gulp.src('**/*.php')
 		.pipe(sort())
 		.pipe(wppot({
 			domain: 'to-vehicles',
@@ -37,5 +45,6 @@ gulp.task('wordpress-pot', function () {
 			bugReport: 'https://www.lsdev.biz/product/tour-operator-vehicles/issues',
 			team: 'LightSpeed <webmaster@lsdev.biz>'
 		}))
-		.pipe(gulp.dest('languages'));
+		.pipe(gulp.dest('languages')),
+		done();
 });
