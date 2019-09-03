@@ -1,5 +1,8 @@
 ## Change log
 
+### 1.0.5 - In development
+* Dev - Adding the .gitattributes file to remove unnecessary files from the WordPress version.
+
 ### 1.0.4
 * Dev - Standardized the Gallery and Video fields
 * Dev - Vehicle Page layout single changes 
