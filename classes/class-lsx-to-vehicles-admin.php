@@ -205,11 +205,13 @@ class LSX_TO_Vehicles_Admin extends LSX_TO_Vehicles {
 			'type' => 'title',
 		);
 		$fields[] = array(
-			'id'         => 'gallery',
-			'name'       => esc_html__( 'Gallery', 'tour-operator' ),
-			'type'       => 'image',
-			'repeatable' => true,
-			'show_size'  => false,
+			'id'                  => 'gallery',
+			'name'                => '',
+			'type'                => 'image',
+			'repeatable'          => true,
+			'show_size'           => false,
+			'sortable'            => true,
+			'string-repeat-field' => esc_html__( 'Add new image', 'tour-operator' ),
 		);
 		if ( class_exists( 'Envira_Gallery' ) ) {
 			$fields[] = array(

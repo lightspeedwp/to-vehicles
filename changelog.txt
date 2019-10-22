@@ -1,5 +1,8 @@
 ## Change log
 
+### 1.0.5 (in development)
+* Dev - Enabled the sorting of the gallery field
+
 ### 1.0.4
 * Dev - Standardized the Gallery and Video fields
 * Dev - Vehicle Page layout single changes 
