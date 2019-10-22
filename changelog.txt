@@ -1,7 +1,8 @@
 ## Change log
 
-### 1.0.5 (in development)
+### 1.0.5 in development
 * Dev - Enabled the sorting of the gallery field
+* Dev - Adding the .gitattributes file to remove unnecessary files from the WordPress version.
 
 ### 1.0.4
 * Dev - Standardized the Gallery and Video fields
