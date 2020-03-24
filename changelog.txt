@@ -1,33 +1,65 @@
-## Change log
+# Change log
 
-### 1.0.5 in development
-* Dev - Enabled the sorting of the gallery field
-* Dev - Adding the .gitattributes file to remove unnecessary files from the WordPress version.
 
-### 1.0.4
-* Dev - Standardized the Gallery and Video fields
-* Dev - Vehicle Page layout single changes 
-* Fix - Updating templates to show widget
-* Fix - Adding correct post types 
-* Fix - Added in the LSX redirect class
-* Fix - Added in the redirects class, and changed the setting to partials
-* Fix - Commenting out the unused fuctions
-* Fix - Added in the call to the enquire modal
-* Fix - Adding final fixes for travis
+## [Unreleased] - Minor version 1.0.5
 
-### 1.0.3
-* Fix - Make the addon compatible with the latest version from TO Search addon
-* Fix - API key and email grabbed from the correct settings tab
-* Fix - Added TO Search as subtab on LSX TO settings page
-* Dev - Fixed menu navigation improved
-* Fix - Small fixes on front-end fields
+### Added
+- Enabled the sorting of the gallery field.
+- Adding the .gitattributes file to remove unnecessary files from the WordPress version.
 
-### 1.0.2
-* Fix - Fixed all prefixes replaces (to_ > lsx_to_, TO_ > LSX_TO_)
+### Fixed
+- Changed the search slug to /search/ for the JSON+LD output in Yoast SEO.
+- Undefined index: `display_result_count`.
 
-### 1.0.1
-* Fix - Reduced the access to server (check API key status) using transients
-* Fix - Made the API URLs dev/live dynamic using a prefix "dev-" in the API KEY
+### Security
+- General testing to ensure compatibility with latest WordPress version (5.4).
+- General testing to ensure compatibility with latest LSX Theme version (2.7).
 
-### 1.0.0
-* First Version
+
+## [[1.0.4]](https://github.com/lightspeeddevelopment/to-vehicles/releases/tag/v1.0.4) - 2019-06-24
+
+### Added
+- Standardized the Gallery and Video fields.
+- Vehicle Page layout single changes.
+- Adding correct post types.
+- Added in the LSX redirect class.
+- Added in the redirects class, and changed the setting to partials.
+- Added in the call to the enquire modal.
+
+### Changed
+- Updating templates to show widget.
+
+### Deprecated
+- Commenting out the unused functions.
+
+### Fixed
+- Adding final fixes for travis.
+
+
+## [[1.0.3]]()
+
+### Fixed
+- Fixed menu navigation improved.
+- Make the addon compatible with the latest version from TO Search addon.
+- API key and email grabbed from the correct settings tab.
+- Added TO Search as subtab on LSX TO settings page.
+- Small fixes on front-end fields.
+
+
+## [[1.0.2]]()
+
+### Fixed
+- Fixed all prefixes replaces (to_ > lsx_to_, TO_ > LSX_TO_).
+
+
+## [[1.0.1]]()
+
+### Fixed
+- Reduced the access to server (check API key status) using transients.
+- Made the API URLs dev/live dynamic using a prefix "dev-" in the API KEY.
+
+
+## [[1.0.0]]()
+
+### Added
+* First Version.

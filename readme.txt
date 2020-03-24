@@ -3,9 +3,9 @@ Contributors: feedmymedia
 Donate link: https://donate.lsdev.biz/
 Tags: tour operator, lsx, accommodation, vehicles, destinations
 Requires at least: 4.9
-Tested up to: 5.2.2
+Tested up to: 5.4
 Requires PHP: 7.0
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -17,7 +17,7 @@ To help convince travellers of their comfort and safety when traveling with you,
 
 Fill in your fleets’ specs and display your vehicles on connected tours and  destinations. 
 
-With a range of avaiable options such as; type and number of gears, engine type (petrol/diesel), number of seats, vehicle code, and of course images and copy.
+With a range of available options such as; type and number of gears, engine type (petrol/diesel), number of seats, vehicle code, and of course images and copy.
 
 == Works with the LSX Theme ==
 
@@ -27,7 +27,7 @@ We are always updating our software to add functionality, and maintain latest se
 
 == Gutenberg Compatible Plugin ==
 
-Have you updated to the new WordPress Gutenberg editor? We've got you covered! The Tour Operator Vehicles Plugin has been optimised for the Gutenberg update. 
+Have you updated to the new WordPress Gutenberg editor? We've got you covered! The Tour Operator Vehicles Plugin has been optimized for the Gutenberg update. 
 
 Check out our [our Tour Operator dedicated website](https://tour-operator.lsdev.biz/) to check out all our available extensions and features.
 
