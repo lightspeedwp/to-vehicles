@@ -23,7 +23,7 @@
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-sort": "^2.0.0",
-    "gulp-uglify": "^1.2.0",
+    "gulp-uglify": "^3.0.2",
     "gulp-wp-pot": "^1.2.2"
   }
 }
