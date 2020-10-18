@@ -9,7 +9,7 @@ Stable tag: 1.0.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 
-Welcome to the LSX Tour Operator Vehicles extension.
+This plugin lets you display your fleets’ specs and vehicles on connected tours and destinations. 
 
 == Description ==
 If you haven't yet had the chance to [install and configure the Tour Operator Plugin](https://www.lsdev.biz/lsx/extensions/tour-operator/), you should do that before proceeding here! 
