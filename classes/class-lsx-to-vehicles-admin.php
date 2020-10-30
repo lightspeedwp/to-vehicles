@@ -104,6 +104,7 @@ class LSX_TO_Vehicles_Admin extends LSX_TO_Vehicles {
 			'capability_type'    => 'post',
 			'has_archive'        => 'vehicles',
 			'hierarchical'       => true,
+			'show_in_rest'       => true,
 			'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' ),
 		);
 
