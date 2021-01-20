@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name: Tour Operator Vehicles
+ * Plugin Name: LSX Tour Operator Vehicles
  * Plugin URI:  https://www.lsdev.biz/product/tour-operator-vehicles/
  * Description: The Tour Operator Vehicles extension adds the Vehicles post type, with fields to specify each of your company’s vehicle specs to ensure prospective travellers of their safety and comfort on your tours.
  * Version:     1.0.5

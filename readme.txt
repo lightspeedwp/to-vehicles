@@ -1,7 +1,7 @@
 === LSX Tour Operator Vehicles ===
 Contributors: feedmymedia, lightspeedwp, eleshar, krugazul, jacquesvdh, ignusvermaak
 Donate link: https://lsdev.biz/lsx/donate/
-Tags: tour operator, lsx, accommodation, vehicles, destinations
+Tags: lsx, tour operator, accommodation, vehicles, destinations
 Requires at least: 5.3
 Tested up to: 5.6
 Requires PHP: 7.2
